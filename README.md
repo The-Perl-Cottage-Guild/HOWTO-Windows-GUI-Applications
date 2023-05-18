@@ -22,23 +22,47 @@ https://www.msys2.org/
 
 ## Install required packages in MSYS64
 
-
-
 ```
 pacman -Syu --needed git make mingw-w64-x86_64-toolchain mingw-w64-x86_64-wxwidgets3.0-msw mingw-w64-x86_64-openssl mingw-w64-x86_64-perl
-#!! also add exports to ~/.bashrc for future use
+```
+
+Pro tip: _Add add exports to ~/.bashrc for future use_
+
+```
 export PATH=/mingw64/bin:/mingw64/bin/core_perl:/mingw64/bin/site_perl/5.32.1:$PATH
 export PERL5LIB=/home/$USER/local/lib/perl5
+```
+
+Install `cpanm` so  we can easily use the upstream patches:
+
+```
 perl -S cpan install App::cpanminus
+```
+
+Install the dependencies for `Alien::wxWidgets`:
+
+```
 # install the deps to the sitelib
 OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm --installdeps -n --verbose  Alien::wxWidgets
-# install Alien::wxWidgets
+```
+
+Install `Alien::wxWidgets`:
+
+```
 OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm -llocal -n --verbose https://github.com/orbital-transfer-example/debian-libalien-wxwidgets-perl.git@patch
+```
+
+Finally install the `Wx` module:
+
+```
 # install Wx
 OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm -llocal -n --verbose https://github.com/orbital-transfer-example/debian-libwx-perl.git@patch
+```
 
-# Wx::Demo
+## Exploring `Wx` via `Wx::Demo`:
+
+```
 cpanm Wx::Demo
-# may need to edit Demo.pm due to “icons” error
-perl ./wxperl_demo.pl
+# Note: you may need to edit Demo.pm due to “icons” error
+perl /mingw64/bin/site_perl/5.32.1/wxperl_demo.pl
 ```
