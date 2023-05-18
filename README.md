@@ -16,7 +16,7 @@ installing wxPerl on MSYS2 on Windows 10, such that one is able to run
 and develop (assisted by `wxGlade`) native looking Windows GUIs using
 Perl and wxWidgets! (pause for dramatic affect...)
 
-## Install MSYS2
+## Step 1: Install MSYS2
 
 https://www.msys2.org/
 
