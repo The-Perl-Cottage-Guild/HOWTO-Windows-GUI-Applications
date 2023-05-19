@@ -14,7 +14,8 @@ to develop, package, and distribute a Windows GUI application in a way that make
 the process indistinguishable from any other program they might purchase, download,
 and install on their local Windows machine.
 
-There will likely be scripts and tools in this repository, but 
+There will likely be scripts and tools in this repository, but primarily this is an
+information resource. Tools may be placed in additional repositories.
 
 # Areas of Concern
 
