@@ -20,7 +20,7 @@ Perl and wxWidgets! (pause for dramatic affect...)
 
 https://www.msys2.org/
 
-## Install required packages in MSYS64
+## Step 2: Install required packages in MSYS64
 
 ```
 pacman -Syu --needed git make mingw-w64-x86_64-toolchain mingw-w64-x86_64-wxwidgets3.0-msw mingw-w64-x86_64-openssl mingw-w64-x86_64-perl
@@ -59,7 +59,7 @@ Finally install the `Wx` module:
 OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm -llocal -n --verbose https://github.com/orbital-transfer-example/debian-libwx-perl.git@patch
 ```
 
-## Exploring `Wx` via `Wx::Demo`:
+## Step 3: Explore `Wx` via `Wx::Demo`:
 
 ```
 cpanm Wx::Demo
@@ -94,9 +94,11 @@ Then `cd` into the new directory and run `./wxglade.py`:
 ```
 cd wxGlade-1.0.5
 
-# start wxglade
+## Step 3: start wxglade
 ./wxglade.py
 ```
+
+# Conclusion
 
 This document doesn't cover how to actually use _wxGlade_. It's not hard, but good luck. If you would
 like to contribute to this document, please do so in a pull request. It is greatly appreciated by all!
