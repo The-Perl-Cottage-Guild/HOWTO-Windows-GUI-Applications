@@ -1,4 +1,4 @@
-# Introduction to Perl Application Programming on the Windows Desktop
+# Introduction to Perl GUI Programming for the Windows Desktop
 
 This is the main repository focusing exclusively on creating and distributing
 Perl GUI programs on Windows. Yes, Perl programmers and Windows make strange
