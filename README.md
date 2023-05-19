@@ -1,104 +1,42 @@
-# Introduction
+# Introduction to Perl Application Programming on Windows
 
-This guide is based on the best available information at the time
-of its writing. At the end of this guide, you will be able to run
-wxPerl applications on Windows 10 (and probably others). You will
-also be able to develop applications for wxPerl using wxGlade under
-the same environment.
+This is the main repository focusing exclusively on creating and distributing
+Perl GUI programs on Windows. Yes, Perl programmers and Windows make strange
+bedfellows, but Windows customers don't mind paying a _Microsoft Tax_ for programs
+that meet their needs. And better than that, they don't usually care what it is
+written in.
 
-The steps are covered in this recording of a live stream done by the
-Houston Perl Mongers group in May 2023.
+# Statement of Information Goals
 
-https://www.youtube.com/watch?v=zOW8fMrpIS0
+This repository will have reached it's stated goal when it contains at least one
+fully described and verifiably effective workflow that allows a diligent Perl programmer
+to develop, package, and distribute a Windows GUI application in a way that makes
+the process indistinguishable from any other program they might purchase, download,
+and install on their local Windows machine.
 
-The following is not a script, but a series of steps and commands for
-installing wxPerl on MSYS2 on Windows 10, such that one is able to run
-and develop (assisted by `wxGlade`) native looking Windows GUIs using
-Perl and wxWidgets! (pause for dramatic affect...)
+There will likely be scripts and tools in this repository, but 
 
-## Step 1: Install MSYS2
+# Areas of Concern
 
-https://www.msys2.org/
+Our aim is to provide a well researched, documented, and reliable means of doing the
+following towards to goal of producing _Yet Another Windows GUI_ that is indistinguisable
+from something produced from other native Windows development workflows.
 
-## Step 2: Install required packages in MSYS64
+This includes all the following, a ...
 
-```
-pacman -Syu --needed git make mingw-w64-x86_64-toolchain mingw-w64-x86_64-wxwidgets3.0-msw mingw-w64-x86_64-openssl mingw-w64-x86_64-perl
-```
+1. development environment (which doesn't have to be _on_ Windows itself)
+2. testing environment (again, not necessarily _on_ Windows)
+3. process to package the _Windows GUI application_ into a standalone `.exe`, or
+4. process to provide a _typical_ Windows installation experience
 
-Pro tip: _Add add exports to ~/.bashrc for future use_
+# Resources Available
 
-```
-export PATH=/mingw64/bin:/mingw64/bin/core_perl:/mingw64/bin/site_perl/5.32.1:$PATH
-export PERL5LIB=/home/$USER/local/lib/perl5
-```
+Currently, means of distributing information and providing community interaction will be facilitated via:
 
-Install `cpanm` so  we can easily use the upstream patches:
-
-```
-perl -S cpan install App::cpanminus
-```
-
-Install the dependencies for `Alien::wxWidgets`:
-
-```
-# install the deps to the sitelib
-OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm --installdeps -n --verbose  Alien::wxWidgets
-```
-
-Install `Alien::wxWidgets`:
-
-```
-OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm -llocal -n --verbose https://github.com/orbital-transfer-example/debian-libalien-wxwidgets-perl.git@patch
-```
-
-Finally install the `Wx` module:
-
-```
-# install Wx
-OPENSSL_PREFIX=/mingw64 MAKEFLAGS=-j$(nproc) cpanm -llocal -n --verbose https://github.com/orbital-transfer-example/debian-libwx-perl.git@patch
-```
-
-## Step 3: Explore `Wx` via `Wx::Demo`:
-
-```
-cpanm Wx::Demo
-# Note: you may need to edit Demo.pm due to “icons” error
-perl /mingw64/bin/site_perl/5.32.1/wxperl_demo.pl
-```
-
-# Installing _wxGlade_ on MSYS2
-
-wxGlade is a program writting using _wxPython_, Python's language bindings for wxWidgets. It is
-useful for Perl craftsmen because it can export Perl code based on the defined GUI. It's an excellent
-way to bootstrap a `wxPerl` projects.
-
-
-## Step 1: Install `wxPython`
-
-```
-pacman -Syu mingw-w64-x86_64-wxPython unzip
-```
-
-## Step 2: Download and unzip the latest version of _wxGlade_ (currently 1.0.5):
-
-
-```
-wget 'https://downloads.sourceforge.net/project/wxglade/wxglade/1.0.5/wxGlade-1.0.5.zip?ts=gAAAAABkZRMb57l3eOhXFgCr-fQrsv4ko96Xek4_x6M4TkaC3P9nzhkA1KabnLysHoQAHg2wnl0xhtzaH5Mih7tXHtFvq2KbaA%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fwxglade%2Ffiles%2Flatest%2Fdownload' -o wxglade.zip 
-
-unzip wxglade.zip
-```
-
-Then `cd` into the new directory and run `./wxglade.py`:
-
-```
-cd wxGlade-1.0.5
-
-## Step 3: start wxglade
-./wxglade.py
-```
+1. this repository (PRs needed!!)
+2. the repo's WIKI (more stable documentation)
+3. the repo's _Discussion_ forum (for questions, members helping members, etc)
 
 # Conclusion
 
-This document doesn't cover how to actually use _wxGlade_. It's not hard, but good luck. If you would
-like to contribute to this document, please do so in a pull request. It is greatly appreciated by all!
+Thank you, and enjoy helping Perl take over the Windows desktop!
