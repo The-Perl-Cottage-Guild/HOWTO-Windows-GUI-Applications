@@ -83,7 +83,7 @@ pacman -Syu mingw-w64-x86_64-wxPython unzip
 ## Step 2: Download and unzip the latest version of _wxGlade_ (currently 1.0.5):
 
 
-``
+```
 wget 'https://downloads.sourceforge.net/project/wxglade/wxglade/1.0.5/wxGlade-1.0.5.zip?ts=gAAAAABkZRMb57l3eOhXFgCr-fQrsv4ko96Xek4_x6M4TkaC3P9nzhkA1KabnLysHoQAHg2wnl0xhtzaH5Mih7tXHtFvq2KbaA%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fwxglade%2Ffiles%2Flatest%2Fdownload' -o wxglade.zip 
 
 unzip wxglade.zip
